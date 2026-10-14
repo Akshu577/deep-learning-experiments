@@ -1,0 +1,108 @@
+Assignment 4 - LSTM text generation on Epicurious Recipes
+Temperatures used: 0.5 and 0.8 (final training loss: 1.5235 after 25 epochs)
+
+================================================================================
+TEMPERATURE = 0.5
+================================================================================
+
+generated text (temperature=0.5):
+recipe for roasted vegetables | preheat oven to 400°f . heat oil in heavy large skillet over medium - high heat . add onions ; sauté until golden , about 8 minutes . add garlic and sauté until brown and tender , about 8 minutes . add garlic ; sauté until chicken is cooked through , about 5 minutes . add 1 / 2 cup broth and boil until reduced to 3 tablespoons , about 5 minutes . add wine , broth and bay leaf . bring to boil . reduce heat to medium - low and simmer until potatoes are tender , about 20 minutes . transfer to bowl . add pasta ; toss to coat . cover and chill until cold , about 30 minutes . ( can be made 1 day ahead . cover and keep refrigerated . ) 
+
+
+generated text (temperature=0.5):
+recipe for chocolate ice cream | pour 1 cup cream into a medium saucepan and let steep , covered , 10 minutes . pour off all but 3 tablespoons of juice and discard liquid from pod . bring sugar , water , sugar , and salt to a boil in a 1 - quart saucepan , stirring until sugar is dissolved . in a bowl whisk together sugar , milk , lemon juice , and salt and pepper to taste , stirring until combined well . add cream mixture and beat until smooth . whisk in sour cream , 1 / 4 cup water , and remaining 1 / 2 teaspoon salt and 1 / 2 teaspoon vanilla . in a bowl whisk together yolks , sugar , and vanilla and beat until combined well . gradually whisk in eggs , 1 at a time , beating well after each
+
+
+generated text (temperature=0.5):
+recipe for grilled salmon with lemon | in a bowl combine the onion , the lemon juice , the gingerroot , the vinegar , the olive oil , the sugar , the mustard , the remaining 1 / 4 teaspoon salt , and the cayenne and whisk in the remaining 1 / 2 cup sugar , the tabasco , the cayenne , the oil , the mustard , the salt , and the pepper and the lemon juice and whisk in the remaining ingredients . the olive oil keeps , covered , and refrigerated for up to 2 weeks . 
+
+================================================================================
+TEMPERATURE = 0.8
+================================================================================
+
+generated text (temperature=0.8):
+recipe for roasted vegetables | preheat oven to 450°f . combine all of oil , red peppers , oregano , salt , pepper , and 1 / 2 teaspoon salt in a plastic bag ; let stand , covered tightly , until firm , 10 minutes . turn lamb , working in batches , fry bread until golden brown , about 2 minutes per side . transfer [UNK] to a paper towel–lined baking sheet . ( you can cover the dish clean , use some of your hands or a food processor ) . chop . heat oil in heavy large pot over medium - high heat . add spices and sauté until brown , about 1 minute . add olives , thyme , rosemary , salt and pepper . bring to boil , stirring often . reduce heat to medium and simmer until reduced to 1 1 / 2
+
+
+generated text (temperature=0.8):
+recipe for chocolate ice cream | bring cream , milk , and cream in a small saucepan to blend , swirling pan . reduce heat and simmer , stirring constantly , until smooth . remove from heat and add nutmeg , mint , and remaining 1 / 2 cup milk . add preserves ; bring just to coat . let stand until sugar dissolves and mixture is thickened , about 15 minutes . return butter to 350°f . add 1 1 / 2 cups maple syrup and simmer until mixture is thickened and reduced to 1 1 / 2 to 3 cups , 8 to 12 minutes . sift powdered cornstarch into a large bowl . whisk almond mixture into yolk mixture until smooth ; set aside . blend flour , flour , baking powder , and 1 / 4 cup sugar in a food processor . add 1 /
+
+
+generated text (temperature=0.8):
+recipe for grilled salmon with lemon | pour a small wooden spoons as the soy sauce into a glaze ( it will bubble up ) . sprinkle the chicken mixture with the salt . 
+
+
+
+NEXT-WORD PROBABILITIES
+================================================================================ 
+TEMPERATURE = 0.5
+
+generated text (temperature=0.5):
+recipe for roasted vegetables | chop 1 / 2 cups
+
+
+PROMPT: recipe for roasted vegetables | chop 1 /
+2:   	64.51%
+4:   	33.01%
+3:   	1.5%
+8:   	0.93%
+spice:   	0.02%
+--------
+
+PROMPT: recipe for roasted vegetables | chop 1 / 2
+cup:   	78.51%
+cups:   	4.28%
+teaspoon:   	3.99%
+tsp:   	2.45%
+garlic:   	1.6%
+--------
+================================================================================ 
+TEMPERATURE = 0.8
+
+generated text (temperature=0.8):
+recipe for roasted vegetables | chop 1 / 2 pounds
+
+
+PROMPT: recipe for roasted vegetables | chop 1 /
+2:   	53.9%
+4:   	35.46%
+3:   	5.14%
+8:   	3.81%
+spice:   	0.36%
+--------
+
+PROMPT: recipe for roasted vegetables | chop 1 / 2
+cup:   	40.43%
+cups:   	6.56%
+teaspoon:   	6.28%
+tsp:   	4.63%
+garlic:   	3.54%
+--------
+================================================================================ 
+TEMPERATURE = 0.5
+
+generated text (temperature=0.5):
+recipe for chocolate ice cream | preheat
+
+
+PROMPT: recipe for chocolate ice cream |
+combine:   	27.14%
+in:   	20.98%
+preheat:   	14.31%
+whisk:   	11.49%
+bring:   	8.53%
+--------
+================================================================================ 
+TEMPERATURE = 0.8
+
+generated text (temperature=0.8):
+recipe for chocolate ice cream | bring
+
+
+PROMPT: recipe for chocolate ice cream |
+combine:   	16.24%
+in:   	13.82%
+preheat:   	10.88%
+whisk:   	9.49%
+bring:   	7.88%
+--------
