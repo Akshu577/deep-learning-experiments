@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Deep Learning & Generative Models: Experiments</title>
+<style>
+body { font-family: system-ui, sans-serif; max-width: 860px; margin: 40px auto; padding: 0 16px; line-height: 1.55; color: #1f2328; }
+table { border-collapse: collapse; width: 100%; font-size: 0.95em; } th, td { border: 1px solid #d0d7de; padding: 6px 10px; text-align: left; }
+code, pre { background: #f6f8fa; } pre { padding: 12px; overflow-x: auto; } img { max-width: 100%; }
+.src { font-size: 0.9em; color: #57606a; }
+</style></head><body>
+<p class="src">Source code: <a href="https://github.com/Akshu577/deep-learning-experiments">github.com/Akshu577/deep-learning-experiments</a></p>
+<h1>Deep Learning &amp; Generative Models: Experiments</h1>
+<p>These are six experiments from my MS in Artificial Intelligence (University of the Cumberlands). Each one starts from the reference code in <em>Generative Deep Learning, 2nd ed.</em> (David Foster, O'Reilly; <a href="https://github.com/davidADSP/Generative_Deep_Learning_2nd_Edition">code on GitHub</a>, Apache 2.0). I then changed one thing (an activation function, the stride, the training length, the sampling temperature) and measured what happened. The notebooks say exactly what I changed from the book.</p>
+<p>Built with TensorFlow / Keras 3.</p>
+<table>
+<thead>
+<tr>
+  <th>#</th>
+  <th>Experiment</th>
+  <th>Data</th>
+  <th>What I changed and what I found</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>01</td>
+  <td><a href="01-mlp-activations.html">MLP activation functions</a></td>
+  <td>Fashion-MNIST</td>
+  <td>Same network with ReLU, LeakyReLU and Sigmoid. Test accuracy 88.0% / <strong>88.7%</strong> / 88.3%. On a network this shallow, the choice barely matters.</td>
+</tr>
+<tr>
+  <td>02</td>
+  <td><a href="02-cnn-stride.html">CNN stride</a></td>
+  <td>CIFAR-10</td>
+  <td>Stride 2 vs. stride 3. Accuracy dropped from <strong>72.8%</strong> to 65.5%, because the larger stride throws away spatial detail too early.</td>
+</tr>
+<tr>
+  <td>03</td>
+  <td><a href="03-autoencoder.html">Autoencoder</a></td>
+  <td>Fashion-MNIST</td>
+  <td>Trained a convolutional autoencoder and studied where reconstructions lose detail.</td>
+</tr>
+<tr>
+  <td>04</td>
+  <td><a href="04-lstm-text-generation.html">LSTM text generation</a></td>
+  <td>Epicurious recipes</td>
+  <td>Trained a word-level LSTM (loss 1.52 after 25 epochs) and compared generated recipes at temperature 0.5 vs. 0.8 (<a href="https://github.com/Akshu577/deep-learning-experiments/blob/main/04-lstm-text-generation/generated_text.txt">sample output</a>).</td>
+</tr>
+<tr>
+  <td>05</td>
+  <td><a href="05-realnvp-normalizing-flow.html">RealNVP normalizing flow</a></td>
+  <td>Two Moons</td>
+  <td>Trained twice as long as the book (600 epochs). Loss went 2.56 → 1.70 and the flow maps the moons to a Gaussian and back.</td>
+</tr>
+<tr>
+  <td>06</td>
+  <td><a href="06-energy-based-model.html">Energy-based model</a></td>
+  <td>MNIST</td>
+  <td>Trained for 120 epochs instead of 60. <strong>Training collapsed after epoch 80</strong>, and the notebook analyses why using the Langevin samples and the replay buffer.</td>
+</tr>
+</tbody>
+</table>
+<p>The most interesting one is 06. Training longer made the model <em>worse</em>, and figuring out why taught me more than the runs that worked.</p>
+<h2>Run</h2>
+<pre><code class="language-bash">pip install tensorflow matplotlib numpy jupyter
+</code></pre>
+<p>Most notebooks download their datasets through <code>keras.datasets</code>. Notebook 04 expects the <a href="https://www.kaggle.com/datasets/hugodarwood/epirecipes">Epicurious recipes dataset</a> at <code>../data/epirecipes/full_format_recipes.json</code>. Trained model weights aren't included because of their size.</p>
+
+</body></html>
