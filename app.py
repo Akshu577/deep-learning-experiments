@@ -34,7 +34,8 @@ def figures(folder):
     caption, figs = "", []
     for cell in json.loads(nb.read_text())["cells"]:
         if cell["cell_type"] == "markdown":
-            lines = [l.strip("# ").strip() for l in "".join(cell["source"]).splitlines() if l.strip()]
+            src = re.sub(r"<[^>]+>", "", "".join(cell["source"]))  # drop <a name=...> anchors
+            lines = [l.strip("# ").strip() for l in src.splitlines() if l.strip()]
             if lines:
                 caption = lines[0]
         for o in cell.get("outputs", []):
