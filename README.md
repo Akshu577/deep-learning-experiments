@@ -1,5 +1,7 @@
 # Deep Learning & Generative Models: Experiments
 
+**Live page:** https://akshu577.github.io/deep-learning-experiments/
+
 These are six experiments from my MS in Artificial Intelligence (University of the Cumberlands). Each one starts from the reference code in *Generative Deep Learning, 2nd ed.* (David Foster, O'Reilly; [code on GitHub](https://github.com/davidADSP/Generative_Deep_Learning_2nd_Edition), Apache 2.0). I then changed one thing (an activation function, the stride, the training length, the sampling temperature) and measured what happened. The notebooks say exactly what I changed from the book.
 
 Built with TensorFlow / Keras 3.
